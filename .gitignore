@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.env*
+!.env.example
+*.pem
+.oci/
+data/db.json
+*.tsbuildinfo
+next-env.d.ts
+__pycache__/
+*.pyc
+.venv/
+agents/photos/*
+!agents/photos/README.md
+apify-actor/storage/

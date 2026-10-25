@@ -1,0 +1,22 @@
+{
+    "actorSpecification": 1,
+    "fields": {},
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": ["address", "dateIssued", "permitType", "contractor", "id"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "address": { "label": "Address" },
+                    "dateIssued": { "label": "Date issued" },
+                    "permitType": { "label": "Type" },
+                    "contractor": { "label": "Contractor" },
+                    "id": { "label": "Permit #" }
+                }
+            }
+        }
+    }
+}

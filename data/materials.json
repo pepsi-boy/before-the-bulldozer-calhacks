@@ -1,0 +1,21 @@
+{
+  "_notes": "Value and weight per unit are starting guesses from the build spec; verify against Habitat ReStore prices. co2KgPerLb approximates EPA WARM source-reduction factors (MTCO2E per short ton x 0.5 = kg per lb): wood ~1.0, steel/mixed metal ~1.5, glass ~0.3, ceramic/stone ~0.1. Verify against the current WARM tables before pitching, or set NEXT_PUBLIC_SHOW_CO2=false.",
+  "conditionMultiplier": { "excellent": 1.0, "good": 0.75, "fair": 0.4, "poor": 0 },
+  "materials": [
+    { "category": "doors",             "unit": "each",      "valueUsdPerUnit": 30,  "weightLbPerUnit": 35,  "co2KgPerLb": 1.0 },
+    { "category": "windows",           "unit": "each",      "valueUsdPerUnit": 20,  "weightLbPerUnit": 25,  "co2KgPerLb": 0.3 },
+    { "category": "cabinets",          "unit": "linear_ft", "valueUsdPerUnit": 25,  "weightLbPerUnit": 15,  "co2KgPerLb": 1.0 },
+    { "category": "countertops",       "unit": "sq_ft",     "valueUsdPerUnit": 8,   "weightLbPerUnit": 18,  "co2KgPerLb": 0.1 },
+    { "category": "flooring_hardwood", "unit": "sq_ft",     "valueUsdPerUnit": 2,   "weightLbPerUnit": 2.5, "co2KgPerLb": 1.0 },
+    { "category": "flooring_tile",     "unit": "sq_ft",     "valueUsdPerUnit": 0.5, "weightLbPerUnit": 4,   "co2KgPerLb": 0.1 },
+    { "category": "plumbing_fixtures", "unit": "each",      "valueUsdPerUnit": 30,  "weightLbPerUnit": 60,  "co2KgPerLb": 0.1 },
+    { "category": "lighting_fixtures", "unit": "each",      "valueUsdPerUnit": 15,  "weightLbPerUnit": 8,   "co2KgPerLb": 1.5 },
+    { "category": "appliances",        "unit": "each",      "valueUsdPerUnit": 100, "weightLbPerUnit": 150, "co2KgPerLb": 1.5 },
+    { "category": "hardware",          "unit": "each",      "valueUsdPerUnit": 3,   "weightLbPerUnit": 1,   "co2KgPerLb": 1.5 },
+    { "category": "lumber_trim",       "unit": "linear_ft", "valueUsdPerUnit": 0.5, "weightLbPerUnit": 1.5, "co2KgPerLb": 1.0 },
+    { "category": "brick_stone",       "unit": "each",      "valueUsdPerUnit": 0.4, "weightLbPerUnit": 5,   "co2KgPerLb": 0.1 },
+    { "category": "metal",             "unit": "each",      "valueUsdPerUnit": 5,   "weightLbPerUnit": 20,  "co2KgPerLb": 1.5 },
+    { "category": "furniture",         "unit": "each",      "valueUsdPerUnit": 40,  "weightLbPerUnit": 50,  "co2KgPerLb": 1.0 },
+    { "category": "other",             "unit": "each",      "valueUsdPerUnit": 5,   "weightLbPerUnit": 10,  "co2KgPerLb": 0.5 }
+  ]
+}

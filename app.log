@@ -1,0 +1,86 @@
+
+> before-the-bulldozer@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+  ▲ Next.js 14.2.15
+  - Local:        http://localhost:3001
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 744ms
+ ✓ Compiled /api/permits/sync in 140ms (59 modules)
+[sync] apify=100 added=16 total=116
+ POST /api/permits/sync 200 in 636ms
+[sync] apify=100 added=0 total=116
+ POST /api/permits/sync 200 in 343ms
+[sync] apify=100 added=0 total=116
+ POST /api/permits/sync 200 in 384ms
+[sync] apify=100 added=0 total=116
+ POST /api/permits/sync 200 in 419ms
+[sync] apify=100 added=0 total=116
+ POST /api/permits/sync 200 in 448ms
+[sync] apify=100 added=0 total=116
+ POST /api/permits/sync 200 in 351ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1292ms (662 modules)
+ GET / 200 in 1382ms
+ ✓ Compiled /api/stats in 33ms (332 modules)
+ GET /api/stats 200 in 63ms
+ GET /api/stats 200 in 65ms
+ ✓ Compiled /api/permits/sync in 63ms (333 modules)
+[sync] apify=100 added=0 total=116
+ POST /api/permits/sync 200 in 495ms
+ ✓ Compiled /property/[id] in 216ms (648 modules)
+ ✓ Compiled /api/stats in 23ms (353 modules)
+ GET /api/stats 200 in 42ms
+ GET /api/stats 200 in 43ms
+ ✓ Compiled /api/scan in 103ms (361 modules)
+[scan] vision failed, using demo fallback:  Can't load the default config from ~/.oci/config or ~/.oraclebmc/config because it does not exists or its not a file. For more info about config file and how to get required information, see https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm for more info on OCI configuration files.
+[scan] 2758a757 permit=2026085224 photos=7 items=12 source=demo total=1ms
+ POST /api/scan 200 in 128ms
+ ✓ Compiled /api/claim in 66ms (363 modules)
+ POST /api/claim 200 in 83ms
+ POST /api/claim 200 in 11ms
+ POST /api/claim 200 in 8ms
+ GET /api/stats 200 in 7ms
+ GET /api/stats 200 in 7ms
+ ✓ Compiled /api/permits/sync in 67ms (355 modules)
+[sync] apify=100 added=0 total=116
+ POST /api/permits/sync 200 in 446ms
+ GET / 200 in 88ms
+ ✓ Compiled /api/stats in 29ms (357 modules)
+ GET /api/stats 200 in 41ms
+ GET /api/stats 200 in 42ms
+ GET /api/stats 200 in 6ms
+ GET /api/stats 200 in 7ms
+ ✓ Compiled /api/scan in 54ms (361 modules)
+[scan] vision failed, using demo fallback:  Can't load the default config from ~/.oci/config or ~/.oraclebmc/config because it does not exists or its not a file. For more info about config file and how to get required information, see https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm for more info on OCI configuration files.
+[scan] 40132a09 permit=2026063649 photos=7 items=12 source=demo total=1ms
+ POST /api/scan 200 in 75ms
+ ✓ Compiled /api/claim in 50ms (363 modules)
+ POST /api/claim 200 in 66ms
+ POST /api/claim 200 in 10ms
+ GET /api/stats 200 in 8ms
+ GET /api/stats 200 in 9ms
+ ✓ Compiled /api/permits/sync in 55ms (355 modules)
+[sync] apify=100 added=0 total=116
+ POST /api/permits/sync 200 in 424ms
+ ✓ Compiled /api/permits in 55ms (357 modules)
+ GET /api/permits 200 in 63ms
+ GET /api/permits 200 in 5ms
+ ✓ Compiled /api/scan in 39ms (364 modules)
+[scan] vision failed, using demo fallback:  Can't load the default config from ~/.oci/config or ~/.oraclebmc/config because it does not exists or its not a file. For more info about config file and how to get required information, see https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm for more info on OCI configuration files.
+[scan] c0099cab permit=2026074011 photos=6 items=12 source=demo total=1ms
+ POST /api/scan 200 in 56ms
+ ✓ Compiled /api/claim in 27ms (366 modules)
+ POST /api/claim 200 in 39ms
+ POST /api/claim 200 in 2ms
+ POST /api/claim 200 in 3ms
+ POST /api/claim 200 in 6ms
+ GET /property/2026074011?scan=c0099cab 200 in 46ms
+ ✓ Compiled /api/stats in 77ms (368 modules)
+ GET /api/stats 200 in 86ms
+ GET /api/stats 200 in 87ms
+[sync] apify=100 added=0 total=116
+ POST /api/permits/sync 200 in 420ms

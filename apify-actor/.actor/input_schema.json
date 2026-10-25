@@ -1,0 +1,32 @@
+{
+    "$schema": "https://apify.com/schemas/v1/input.ide.json",
+    "title": "Nashville demolition permits",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "daysBack": {
+            "title": "Days back",
+            "type": "integer",
+            "description": "Only return permits issued in the last N days.",
+            "editor": "number",
+            "default": 90,
+            "minimum": 1,
+            "maximum": 3650
+        },
+        "maxResults": {
+            "title": "Max results",
+            "type": "integer",
+            "description": "Maximum number of permits to return (newest first).",
+            "editor": "number",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 1000
+        },
+        "residentialOnly": {
+            "title": "Residential only",
+            "type": "boolean",
+            "description": "Keep only residential demolitions (houses, townhomes, duplexes).",
+            "default": true
+        }
+    }
+}

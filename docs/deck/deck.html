@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Before the Bulldozer — HackTN26 pitch deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Edit text in this file, then rebuild the PDF (see docs/deck/README.md). */
+  @page { size: 1920px 1080px; margin: 0; }
+  :root {
+    --safety: #F2C200; --asphalt: #1E1E1E; --tar: #2A2A28; --tag: #EFE9DA;
+    --c50: #F4F3EF; --c100: #E9E7E1; --c200: #D6D3CB; --c300: #B9B5AB; --c500: #7C786F; --c700: #4A4741;
+    --hazard: #D9480F; --green: #2F9E44;
+    --display: "Oswald", Impact, "Arial Narrow", sans-serif;
+    --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --mono: "JetBrains Mono", Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #111; }
+  body { font-family: var(--body); color: var(--asphalt); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .slide {
+    width: 1920px; height: 1080px; position: relative; overflow: hidden; page-break-after: always; break-after: page;
+    background-color: var(--c100);
+    background-image: radial-gradient(rgba(30,30,30,.05) 1.4px, transparent 1.4px), radial-gradient(rgba(30,30,30,.035) 1.4px, transparent 1.4px);
+    background-size: 10px 10px, 15px 15px; background-position: 0 0, 4px 7px;
+    padding: 96px 120px 120px;
+  }
+  @media screen { .slide { margin: 0 auto 32px; box-shadow: 0 10px 40px rgba(0,0,0,.5); } body { padding: 32px 0; } }
+  .dark { background: var(--asphalt); color: var(--c50); }
+  .tape { position: absolute; left: 0; right: 0; height: 28px; background: repeating-linear-gradient(-45deg, var(--safety) 0 28px, var(--asphalt) 28px 56px); }
+  .tape.top { top: 0; } .tape.bottom { bottom: 0; }
+  .tape.thin { height: 14px; background: repeating-linear-gradient(-45deg, var(--safety) 0 14px, var(--asphalt) 14px 28px); }
+  .kicker { font-family: var(--display); text-transform: uppercase; letter-spacing: .16em; font-size: 26px; color: var(--c500); font-weight: 600; }
+  .dark .kicker { color: var(--safety); }
+  h1, h2, h3 { font-family: var(--display); text-transform: uppercase; font-weight: 700; line-height: .95; letter-spacing: .01em; }
+  h2 { font-size: 88px; margin-top: 14px; }
+  .lede { font-size: 34px; line-height: 1.35; max-width: 1300px; margin-top: 22px; color: var(--c700); }
+  .dark .lede { color: var(--c200); }
+  .mono { font-family: var(--mono); }
+  .yellow { color: var(--safety); }
+  .foot { position: absolute; left: 120px; right: 120px; bottom: 50px; display: flex; justify-content: space-between; font-family: var(--mono); font-size: 18px; color: var(--c500); }
+  .dark .foot { color: var(--c300); }
+  .pagenum { font-family: var(--display); letter-spacing: .12em; }
+  .card { background: var(--tag); border: 3px solid var(--asphalt); box-shadow: 8px 8px 0 var(--asphalt); position: relative; }
+  .hole { position: absolute; top: 22px; left: 22px; width: 26px; height: 26px; border-radius: 50%; background: var(--c100); border: 3px solid var(--c300); box-shadow: inset 2px 2px 3px rgba(0,0,0,.25); }
+  .stamp { display: inline-block; font-family: var(--display); text-transform: uppercase; letter-spacing: .15em; font-size: 20px; padding: 4px 12px; border: 3px solid currentColor; transform: rotate(-4deg); }
+  .shot { border: 4px solid var(--asphalt); box-shadow: 10px 10px 0 var(--asphalt); display: block; background: #fff; }
+
+  /* 1 · Hook */
+  .s1 { padding: 0; display: grid; grid-template-columns: 860px 1fr; }
+  .s1 .left { padding: 110px 0 60px 120px; position: relative; z-index: 2; display: flex; flex-direction: column; height: 1080px; }
+  .s1 .logo { display: flex; align-items: center; gap: 22px; }
+  .s1 .logo span { width: 84px; height: 84px; background: var(--safety); display: grid; place-items: center; }
+  .s1 h1 { font-size: 138px; color: var(--safety); margin-top: 48px; line-height: .9; }
+  .s1 .tagline { font-size: 38px; line-height: 1.3; color: var(--c100); margin-top: 36px; max-width: 690px; }
+  .s1 .tagline b { color: var(--safety); font-weight: 600; }
+  .s1 .right { position: relative; }
+  .s1 .right img { position: absolute; top: 0; left: 0; height: 100%; width: 100%; object-fit: cover; object-position: 60% 50%; filter: saturate(.9); }
+  .s1 .right::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--asphalt) 0%, rgba(30,30,30,0) 14%); z-index: 1; }
+  .s1 .osm { position: absolute; right: 16px; bottom: 22px; z-index: 2; font-family: var(--mono); font-size: 14px; color: var(--asphalt); background: rgba(255,255,255,.75); padding: 2px 8px; }
+  .s1 .stat { margin-top: auto; display: flex; gap: 64px; }
+  .s1 .stat .n { font-family: var(--mono); font-weight: 700; font-size: 76px; color: var(--safety); line-height: 1; }
+  .s1 .stat .l { font-family: var(--display); text-transform: uppercase; letter-spacing: .1em; font-size: 22px; color: var(--c200); margin-top: 10px; }
+  .s1 .team { margin-top: 34px; font-family: var(--mono); font-size: 19px; color: var(--c300); }
+
+  /* 2 · Problem */
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; margin-top: 44px; }
+  .stat-card { padding: 30px 30px 28px; }
+  .stat-card .n { font-family: var(--mono); font-weight: 700; font-size: 70px; line-height: 1; }
+  .stat-card .l { font-size: 23px; line-height: 1.35; margin-top: 14px; color: var(--c700); }
+  .stat-card .l b { color: var(--asphalt); }
+  .gap { margin-top: 40px; display: grid; grid-template-columns: 1fr 480px; gap: 40px; align-items: stretch; }
+  .gap .box { background: var(--asphalt); color: var(--c50); padding: 30px 40px; border-left: 14px solid var(--safety); }
+  .gap .box h3 { font-size: 38px; color: var(--safety); }
+  .gap .box p { font-size: 25px; line-height: 1.4; margin-top: 12px; color: var(--c200); }
+  .gap .count { padding: 26px 34px; display: flex; flex-direction: column; justify-content: center; }
+  .gap .count .n { font-family: var(--mono); font-weight: 700; font-size: 84px; line-height: 1; color: var(--hazard); }
+  .gap .count .l { font-size: 22px; line-height: 1.35; margin-top: 10px; color: var(--c700); }
+
+  /* 3 · Validation */
+  .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
+  .quote { padding: 70px 40px 36px; min-height: 520px; display: flex; flex-direction: column; }
+  .quote .who { font-family: var(--display); text-transform: uppercase; letter-spacing: .12em; font-size: 24px; color: var(--c500); }
+  .quote blockquote { font-size: 34px; line-height: 1.35; margin-top: 18px; flex: 1; }
+  .quote .changed { border-top: 3px dashed var(--c300); padding-top: 18px; font-size: 22px; line-height: 1.4; color: var(--c700); }
+  .quote .changed b { font-family: var(--display); text-transform: uppercase; letter-spacing: .1em; color: var(--asphalt); font-weight: 600; }
+  .todo { color: var(--hazard); font-style: italic; }
+  .todo-banner { position: absolute; top: 96px; right: 120px; background: var(--hazard); color: #fff; font-family: var(--display); text-transform: uppercase; letter-spacing: .1em; font-size: 22px; padding: 10px 18px; }
+
+  /* 4 · Demo */
+  .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 46px; margin-top: 56px; }
+  .step .num { font-family: var(--mono); font-weight: 700; font-size: 26px; background: var(--safety); color: var(--asphalt); display: inline-block; padding: 4px 14px; border: 3px solid var(--asphalt); }
+  .step h3 { font-size: 40px; margin-top: 14px; }
+  .step p { font-size: 23px; line-height: 1.4; color: var(--c700); margin-top: 8px; min-height: 96px; }
+  .step .shot { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; margin-top: 20px; }
+  .qr { position: absolute; right: 120px; bottom: 44px; display: flex; align-items: center; gap: 22px; }
+  .qr img { width: 124px; height: 124px; background: #fff; padding: 10px; border: 3px solid var(--asphalt); }
+  .qr div { font-family: var(--mono); font-size: 20px; line-height: 1.5; text-align: right; }
+  .qr div b { font-family: var(--display); font-size: 26px; letter-spacing: .08em; text-transform: uppercase; display: block; }
+
+  /* 5 · How it works */
+  .arch { margin-top: 50px; display: grid; grid-template-columns: 300px 60px 470px 60px 420px 60px 300px; align-items: stretch; }
+  .arch .arrow { align-self: center; }
+  .metrics { display: flex; gap: 0; margin-top: 48px; border: 3px solid var(--c700); }
+  .metrics > div { flex: 1; padding: 18px 28px; border-right: 3px solid var(--c700); }
+  .metrics > div:last-child { border-right: 0; }
+  .metrics .n { font-family: var(--mono); font-weight: 700; font-size: 44px; color: var(--safety); }
+  .metrics .l { font-family: var(--display); text-transform: uppercase; letter-spacing: .1em; font-size: 19px; color: var(--c300); margin-top: 4px; }
+  .node { border: 3px solid var(--c300); background: var(--tar); padding: 26px 26px; min-height: 210px; }
+  .node h4 { font-family: var(--display); text-transform: uppercase; font-size: 30px; letter-spacing: .04em; color: var(--c50); }
+  .node p { font-family: var(--mono); font-size: 18px; line-height: 1.55; color: var(--c300); margin-top: 10px; }
+  .node.ai { border-color: var(--safety); background: #2E2A12; box-shadow: 0 0 0 4px rgba(242,194,0,.15); }
+  .node.ai h4 { color: var(--safety); }
+  .arrow { text-align: center; font-family: var(--mono); font-size: 40px; color: var(--safety); }
+  .oci-frame { position: relative; margin-top: 60px; }
+  .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; margin-top: 44px; }
+  .principle { border-top: 6px solid var(--safety); padding-top: 18px; }
+  .principle h3 { font-size: 38px; color: var(--c50); }
+  .principle p { font-size: 24px; line-height: 1.4; color: var(--c300); margin-top: 10px; }
+  .principle .formula { font-family: var(--mono); font-size: 20px; color: var(--safety); margin-top: 12px; line-height: 1.5; }
+
+  /* 6 · Impact */
+  .impact { display: grid; grid-template-columns: 1fr 200px 1.2fr; align-items: stretch; margin-top: 50px; }
+  .impact .times { font-family: var(--mono); font-weight: 700; font-size: 62px; text-align: center; color: var(--c500); align-self: center; }
+  .big { font-family: var(--mono); font-weight: 700; font-size: 100px; line-height: 1; }
+  .impact .card { padding: 46px 48px 40px; }
+  .impact .row { display: flex; gap: 56px; align-items: flex-end; margin-top: 14px; }
+  .impact .row .l { font-family: var(--display); text-transform: uppercase; letter-spacing: .1em; font-size: 22px; color: var(--c500); margin-top: 8px; }
+  .impact .note { font-size: 21px; line-height: 1.4; color: var(--c700); margin-top: 22px; }
+  .city { background: var(--asphalt); color: var(--c50); }
+  .city .big { color: var(--safety); }
+  .city .row .l { color: var(--c300); }
+  .city .note { color: var(--c300); }
+  .next { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 54px; }
+  .next div { border-left: 8px solid var(--asphalt); padding: 6px 0 6px 22px; font-size: 25px; line-height: 1.35; }
+  .next b { font-family: var(--display); text-transform: uppercase; letter-spacing: .06em; font-size: 28px; display: block; margin-bottom: 4px; }
+  .close { position: absolute; left: 0; right: 0; bottom: 28px; height: 120px; background: var(--asphalt); display: flex; align-items: center; justify-content: center; }
+  .close p { font-family: var(--display); text-transform: uppercase; font-size: 54px; letter-spacing: .04em; color: var(--safety); }
+
+  /* 7 · Q&A */
+  .qa { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 60px; margin-top: 46px; }
+  .qa div h4 { font-family: var(--display); text-transform: uppercase; font-size: 30px; color: var(--safety); letter-spacing: .03em; }
+  .qa div p { font-size: 23px; line-height: 1.4; color: var(--c200); margin-top: 6px; }
+  .links { position: absolute; left: 120px; right: 120px; bottom: 110px; display: flex; gap: 60px; align-items: center; }
+  .links .qrbox { display: flex; gap: 20px; align-items: center; }
+  .links img { width: 130px; height: 130px; background: #fff; padding: 8px; }
+  .links span { font-family: var(--mono); font-size: 20px; line-height: 1.5; color: var(--c200); }
+  .links span b { font-family: var(--display); text-transform: uppercase; letter-spacing: .1em; font-size: 24px; color: var(--c50); display: block; }
+  .links .team { margin-left: auto; text-align: right; font-size: 22px; line-height: 1.5; color: var(--c200); }
+  .links .team b { font-family: var(--display); text-transform: uppercase; letter-spacing: .1em; font-size: 28px; color: var(--safety); display: block; }
+</style>
+</head>
+<body>
+
+<!-- ============ 1 · HOOK ============ -->
+<section class="slide dark s1">
+  <div class="left">
+    <div class="logo">
+      <span><svg viewBox="0 0 24 24" width="60" height="60" fill="#1E1E1E"><path d="M3 15a9 9 0 0 1 18 0v1H3v-1Zm8-8.9V4h2v2.1a8 8 0 0 1 2 .6V5h2v2.9A9 9 0 0 1 20.9 14H3.1A9 9 0 0 1 7 7.9V5h2v1.7a8 8 0 0 1 2-.6ZM2 17h20v2H2v-2Z"/></svg></span>
+      <div class="kicker">HackTN26 · Challenge #1 · Surplus to Social Good</div>
+    </div>
+    <h1>Before the<br>Bulldozer</h1>
+    <p class="tagline">Every dot on this map is a Nashville house being torn down. <b>We look inside before the bulldozer does.</b></p>
+    <div class="stat">
+      <div><div class="n">432,065</div><div class="l">tons of C&amp;D debris · Nashville 2021</div></div>
+      <div><div class="n">~3%</div><div class="l">recycled</div></div>
+    </div>
+    <div class="team">Team West End Demons · beforethebulldozer.duckdns.org</div>
+  </div>
+  <div class="right"><img src="img/map.jpg" alt=""><span class="osm">Map data © OpenStreetMap contributors</span></div>
+  <div class="tape bottom thin"></div>
+</section>
+
+<!-- ============ 2 · PROBLEM ============ -->
+<section class="slide">
+  <div class="tape top thin"></div>
+  <div class="kicker">The problem</div>
+  <h2>Nashville buries its houses</h2>
+  <p class="lede">Construction and demolition debris is a fast-growing waste stream, and almost none of it is reused.</p>
+  <div class="grid4">
+    <div class="card stat-card"><div class="n">1 in 3</div><div class="l">tons Nashville landfills is <b>construction &amp; demolition debris</b>. The stream doubled in a decade.</div></div>
+    <div class="card stat-card"><div class="n">97%</div><div class="l">of C&amp;D debris is <b>landfilled</b>: 13,928 of 432,065 tons were recycled in 2021.</div></div>
+    <div class="card stat-card"><div class="n">90%</div><div class="l">went to the Southern Services landfill until 2022. It borders <b>Bordeaux</b>, a predominantly Black neighborhood that has fought it for 20 years.</div></div>
+    <div class="card stat-card"><div class="n">5–10</div><div class="l">years of life left at <b>Middle Point</b>, the landfill that takes Nashville's trash.</div></div>
+  </div>
+  <div class="gap">
+    <div class="box">
+      <h3>The gap: the teardown boom is exempt</h3>
+      <p>Metro's proposed C&amp;D ordinance excludes single-family homes and townhomes of 4 units or fewer. Nobody inventories the house before it comes down, so doors, cabinets, floors and fixtures go straight into the dumpster.</p>
+    </div>
+    <div class="card count">
+      <div class="n">647</div>
+      <div class="l">residential demolition permits issued in Nashville in the last 12 months <span class="mono" style="font-size:18px">(Metro open data)</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Sources: Metro Nashville · Nashville Scene · WPLN · Waste Advantage · Metro Codes Building Permits Issued</span><span class="pagenum">02</span></div>
+</section>
+
+<!-- ============ 3 · VALIDATION ============ -->
+<section class="slide">
+  <div class="tape top thin"></div>
+  <!-- TODO: delete this banner once the three quotes below are real -->
+  <div class="todo-banner">Fill in real quotes before presenting</div>
+  <div class="kicker">Problem validation</div>
+  <h2>What we heard</h2>
+  <p class="lede">We asked: what happens to the stuff inside a teardown? What stops anyone from saving it? Would a salvage list plus a nonprofit pickup change that?</p>
+  <div class="quotes">
+    <div class="card quote"><span class="hole"></span>
+      <div class="who">Habitat for Humanity ReStore</div>
+      <blockquote class="todo">“Add the exact quote from the call here.”</blockquote>
+      <div class="changed"><b>What it changed</b><br><span class="todo">e.g. which categories they accept, pickup rules</span></div>
+    </div>
+    <div class="card quote"><span class="hole"></span>
+      <div class="who">Nashville demolition contractor</div>
+      <blockquote class="todo">“Add the exact quote from the call here.”</blockquote>
+      <div class="changed"><b>What it changed</b><br><span class="todo">e.g. tipping fees, timeline, liability</span></div>
+    </div>
+    <div class="card quote"><span class="hole"></span>
+      <div class="who">Realtor / homeowner / mentor</div>
+      <blockquote class="todo">“Add the exact quote from the call here.”</blockquote>
+      <div class="changed"><b>What it changed</b><br><span class="todo">e.g. who would use it, what would make them say no</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Roles only, no full names · conversations held Oct 17–18, 2026</span><span class="pagenum">03</span></div>
+</section>
+
+<!-- ============ 4 · DEMO ============ -->
+<section class="slide">
+  <div class="tape top thin"></div>
+  <div class="kicker">Live demo</div>
+  <h2>Three screens. Under 20 seconds.</h2>
+  <div class="qr"><div><b>Try it live</b>beforethebulldozer.duckdns.org</div><img src="img/qr-app.svg" alt="QR code to the live app"></div>
+  <div class="flow">
+    <div class="step">
+      <span class="num">01</span>
+      <h3>Salvage Radar</h3>
+      <p>Real Nashville demolition permits from Metro open data, colored by how recently they were issued.</p>
+      <img class="shot" src="img/radar.jpg" alt="">
+    </div>
+    <div class="step">
+      <span class="num">02</span>
+      <h3>Snap the rooms</h3>
+      <p>Kitchen, bath, doors, windows, exterior. Photos shrink in the browser before upload.</p>
+      <img class="shot" src="img/upload.jpg" alt="" style="object-position: 50% 0">
+    </div>
+    <div class="step">
+      <span class="num">03</span>
+      <h3>Manifest + match</h3>
+      <p>Items, condition, safety flags, value and tons, each routed to one nonprofit. Claim, and the citywide counter ticks up.</p>
+      <img class="shot" src="img/manifest.jpg" alt="" style="object-position: 0 0">
+    </div>
+  </div>
+  <div class="foot"><span>Demo house: 1920s bungalow, Historic American Buildings Survey photos (public domain)</span><span class="pagenum">04</span></div>
+</section>
+
+<!-- ============ 5 · HOW IT WORKS ============ -->
+<section class="slide dark">
+  <div class="tape top thin"></div>
+  <div class="kicker">How it works · built on Oracle Cloud</div>
+  <h2>The AI looks. Our rules decide.</h2>
+  <div class="arch">
+    <div class="node"><h4>Metro open data</h4><p>Residential demolition permits, ingested by script</p></div>
+    <div class="arrow">→</div>
+    <div class="node"><h4>Next.js on OCI Compute</h4><p>API routes · zod validation<br>JSON retry · 30 s fallback<br>rules engine · lookup table</p></div>
+    <div class="arrow">⇄</div>
+    <div class="node ai"><h4>OCI Generative AI</h4><p>Llama 4 Maverick (vision)<br>photos → salvage manifest<br>us-chicago-1 · on-demand</p></div>
+    <div class="arrow">→</div>
+    <div class="node"><h4>Nonprofits</h4><p>Habitat ReStore + partners<br>claim → pickup window</p></div>
+  </div>
+  <div class="principles">
+    <div class="principle">
+      <h3>AI only counts</h3>
+      <p>Llama 4 identifies what's visible: item, quantity, condition, safety flags. It never invents a price.</p>
+    </div>
+    <div class="principle">
+      <h3>Our table does the math</h3>
+      <p>Every number is traceable to a per-category lookup.</p>
+      <p class="formula">value = $/unit × qty × condition<br>weight = lb/unit × qty</p>
+    </div>
+    <div class="principle">
+      <h3>Rules route safely</h3>
+      <p>Each item goes to exactly one nonprofit. Possible lead paint or asbestos never goes to families; a licensed pro assesses it.</p>
+    </div>
+  </div>
+  <div class="metrics">
+    <div><div class="n">6–7 s</div><div class="l">per 7-photo scan, end to end</div></div>
+    <div><div class="n">1 + N</div><div class="l">vision call + one short text call per match</div></div>
+    <div><div class="n">≤ 25</div><div class="l">items per manifest, zod-validated</div></div>
+    <div><div class="n">100</div><div class="l">real permits on the map</div></div>
+  </div>
+  <div class="foot"><span>OCI Compute · OCI Generative AI · Autonomous Database as the production data store</span><span class="pagenum">05</span></div>
+</section>
+
+<!-- ============ 6 · IMPACT + NEXT ============ -->
+<section class="slide">
+  <div class="tape top thin"></div>
+  <div class="kicker">Impact + what's next</div>
+  <h2>One house, then the whole city</h2>
+  <div class="impact">
+    <div class="card"><span class="hole"></span>
+      <div class="kicker" style="padding-left:40px">One house · 7 photos</div>
+      <div class="row">
+        <div><div class="big">$854</div><div class="l">reusable materials</div></div>
+        <div><div class="big">0.55</div><div class="l">tons diverted</div></div>
+      </div>
+      <p class="note">11 items routed to 4 nonprofits. Conservative: only what is visible in seven photos.</p>
+    </div>
+    <div class="times">×647</div>
+    <div class="card city">
+      <div class="kicker">Nashville · one year of permits</div>
+      <div class="row">
+        <div><div class="big">~$550K</div><div class="l">of materials</div></div>
+        <div><div class="big">~356</div><div class="l">tons kept out</div></div>
+      </div>
+      <p class="note">Illustrative: 647 residential demolition permits (last 12 months) × the demo house.</p>
+    </div>
+  </div>
+  <div class="next">
+    <div><b>Pilot</b>Run real teardowns with Habitat ReStore; confirm categories and prices.</div>
+    <div><b>Auto-alerts</b>Every new demolition permit opens a salvage opportunity automatically.</div>
+    <div><b>On-site check</b>A human confirms the AI inventory before any truck is sent.</div>
+    <div><b>Liability</b>Waiver template and lead/asbestos referral to licensed pros.</div>
+  </div>
+  <div class="close"><p>Look inside before the bulldozer does.</p></div>
+</section>
+
+<!-- ============ 7 · Q&A BACKUP ============ -->
+<section class="slide dark">
+  <div class="tape top thin"></div>
+  <div class="kicker">Questions</div>
+  <h2>Ask us anything</h2>
+  <div class="qa">
+    <div><h4>How accurate is a photo estimate?</h4><p>It's a starting inventory a human confirms on site. We show AI confidence and never auto-dispatch a truck.</p></div>
+    <div><h4>What about lead and asbestos?</h4><p>Pre-1980 painted wood and old tile get flagged and routed away from families. Abatement needs a licensed pro.</p></div>
+    <div><h4>Why would a contractor bother?</h4><p>Tipping fees: every ton not dumped is money saved, plus possible tax-deductible donation receipts.</p></div>
+    <div><h4>How does it scale?</h4><p>Permits are already public. Any city with open permit data can turn each new demolition into a salvage opportunity.</p></div>
+    <div><h4>Where's Oracle?</h4><p>OCI Generative AI (Llama 4 Maverick) for vision and text, OCI Compute hosting, Autonomous Database as the production store.</p></div>
+    <div><h4>What's real vs. sample?</h4><p>Permits are real Metro data and Habitat ReStore is real. Three partner nonprofits are labeled samples; prices are estimates to verify.</p></div>
+  </div>
+  <div class="links">
+    <div class="qrbox"><img src="img/qr-app.svg" alt=""><span><b>Live app</b>beforethebulldozer.duckdns.org</span></div>
+    <div class="qrbox"><img src="img/qr-repo.svg" alt=""><span><b>Code</b>github.com/mateenbajlory/<br>before-the-bulldozer</span></div>
+    <div class="team"><b>West End Demons</b>Mateen Bajlory · Omar Jebril · Sarmad Salman<br>Zahir Al Hinai · Ibrahim Boudaoud</div>
+  </div>
+  <div class="tape bottom thin"></div>
+</section>
+
+</body>
+</html>

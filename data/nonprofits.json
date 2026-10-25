@@ -1,0 +1,40 @@
+[
+  {
+    "id": "habitat-restore",
+    "name": "Habitat for Humanity of Greater Nashville ReStore",
+    "accepts": ["doors", "windows", "cabinets", "countertops", "lighting_fixtures", "appliances", "hardware", "flooring_hardwood", "flooring_tile"],
+    "prefers": ["doors", "windows", "cabinets", "countertops", "flooring_hardwood", "flooring_tile"],
+    "blurb": "Resells donated building materials at low cost; proceeds fund Habitat home builds in Nashville.",
+    "pickup": true,
+    "sample": false,
+    "url": "https://www.habitatnashville.org"
+  },
+  {
+    "id": "sample-home-repair",
+    "name": "Home repair nonprofit",
+    "accepts": ["lumber_trim", "doors", "windows", "hardware", "plumbing_fixtures"],
+    "prefers": ["lumber_trim", "plumbing_fixtures"],
+    "blurb": "Volunteer crews make critical repairs for low-income and elderly homeowners.",
+    "pickup": true,
+    "sample": true
+  },
+  {
+    "id": "sample-family-furnishing",
+    "name": "Family furnishing program",
+    "accepts": ["furniture", "appliances", "lighting_fixtures"],
+    "prefers": ["furniture", "appliances", "lighting_fixtures"],
+    "blurb": "Furnishes apartments for families leaving homelessness or resettling in Nashville.",
+    "pickup": true,
+    "sample": true,
+    "noSafetyFlagged": true
+  },
+  {
+    "id": "sample-maker-space",
+    "name": "School shop / maker space",
+    "accepts": ["lumber_trim", "hardware", "metal", "brick_stone"],
+    "prefers": ["hardware", "metal", "brick_stone"],
+    "blurb": "Gives students real materials for woodshop, welding and masonry classes.",
+    "pickup": false,
+    "sample": true
+  }
+]

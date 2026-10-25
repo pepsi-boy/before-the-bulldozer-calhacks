@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html, body { background: #E9E7E1; color: #1E1E1E; }
+body { font-family: var(--font-body), "Helvetica Neue", Arial, sans-serif; }
+
+@layer components {
+  .caution-tape {
+    background: repeating-linear-gradient(-45deg, #F2C200 0 14px, #1E1E1E 14px 28px);
+  }
+  .caution-tape-thin {
+    background: repeating-linear-gradient(-45deg, #F2C200 0 8px, #1E1E1E 8px 16px);
+  }
+  .concrete {
+    background-color: #E9E7E1;
+    background-image:
+      radial-gradient(rgba(30,30,30,.05) 1px, transparent 1px),
+      radial-gradient(rgba(30,30,30,.035) 1px, transparent 1px);
+    background-size: 7px 7px, 11px 11px;
+    background-position: 0 0, 3px 5px;
+  }
+  .btn-safety {
+    @apply inline-flex items-center justify-center gap-2 bg-safety text-asphalt font-display uppercase tracking-wider
+      px-5 py-3 text-lg border-2 border-asphalt shadow-[4px_4px_0_#1E1E1E] transition
+      hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[3px_3px_0_#1E1E1E]
+      active:translate-x-[4px] active:translate-y-[4px] active:shadow-none
+      disabled:opacity-50 disabled:pointer-events-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-asphalt;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 bg-transparent text-asphalt font-display uppercase tracking-wider
+      px-4 py-2 border-2 border-asphalt hover:bg-asphalt hover:text-safety transition
+      focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-safety;
+  }
+  .stamp {
+    @apply inline-block font-display uppercase tracking-[0.15em] text-xs px-2 py-0.5 border-2 rotate-[-4deg];
+    mix-blend-mode: multiply;
+  }
+  .hole-punch {
+    @apply absolute top-3 left-3 h-4 w-4 rounded-full bg-concrete-100 border-2 border-concrete-300;
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,.25);
+  }
+  .label-caps { @apply font-display uppercase tracking-[0.12em] text-xs text-concrete-500; }
+}
+
+@keyframes stripe-slide { from { background-position: 0 0; } to { background-position: 56px 0; } }
+.caution-tape-anim { background-size: 39.6px 39.6px; animation: stripe-slide 1s linear infinite; }
+@keyframes tick { 0% { transform: translateY(0); } 30% { transform: translateY(-3px); color: #F2C200; } 100% { transform: translateY(0); } }
+.tick { animation: tick .6s ease-out; }
+
+.leaflet-container { font-family: var(--font-body), Arial, sans-serif; background: #D6D3CB; }
+.leaflet-popup-content-wrapper { border-radius: 0; border: 2px solid #1E1E1E; box-shadow: 4px 4px 0 #1E1E1E; }
+.leaflet-popup-tip { border: 2px solid #1E1E1E; }
+@media (prefers-reduced-motion: reduce) { .caution-tape-anim, .tick { animation: none; } }

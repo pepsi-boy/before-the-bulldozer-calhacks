@@ -1,0 +1,13 @@
+{
+    "actorSpecification": 1,
+    "name": "nashville-demolition-permits",
+    "title": "Nashville Demolition Permits",
+    "description": "Pulls the newest demolition permits from Metro Nashville's open data (Building Permits Issued) so salvage crews and nonprofits can reach houses before they're torn down.",
+    "version": "0.1",
+    "buildTag": "latest",
+    "input": "./input_schema.json",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    },
+    "dockerfile": "../Dockerfile"
+}
